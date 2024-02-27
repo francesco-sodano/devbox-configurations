@@ -1,0 +1,52 @@
+$schema: "1.0"
+name: devbox-python-312
+tasks:
+  # Install Python 3.12
+  - name: winget
+    parameters:
+      package: Python.Python.3.12 
+  # Install Python 3.11 
+  - name: winget
+    parameters:
+      package: Python.Python.3.11
+  # Install Python 3.10 
+  - name: winget
+    parameters:
+      package: Python.Python.3.10 
+  # Install Git
+  - name: winget
+    parameters:
+      package: Git.Git
+  # Install Azure CLI
+  - name: winget
+    parameters:
+      package: Microsoft.AzureCLI
+  # Install pip for Python 3.11
+  - name: powershell
+    parameters:
+      command: |
+        python.exe -m pip install --upgrade pip
+  # Install WSL2 on Ubuntu 22.04
+  - name: powershell
+    parameters:
+      command: |
+        wsl --install -d Ubuntu-22.04
+  # Install Visual Studio Code
+  - name: winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+  # Install Visual Studio Code extensions
+  - name: powershell
+    parameters:
+      command: |
+        code --install-extension ms-python.python;
+        code --install-extension ms-python.vscode-pylance;
+        code --install-extension ms-python.debugpy;
+        code --install-extension donjayamanne.python-environment-manager;
+        code --install-extension github.copilot;
+        code --install-extension github.copilot-chat;
+        code --install-extension github.vscode-pull-request-github;
+        code --install-extension github.remotehub;
+        code --install-extension visualstudioexptteam.vscodeintellicode;
+        code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+      runAsUser: true
