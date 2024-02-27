@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: devbox-python-310
+name: "devbox-python-310"
 tasks:
   # Install Python 3.10 
   - name: winget
@@ -41,4 +41,3 @@ tasks:
         code --install-extension github.remotehub;
         code --install-extension visualstudioexptteam.vscodeintellicode;
         code --install-extension ms-vscode-remote.vscode-remote-extensionpack
-      runAsUser: true
